@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@section('page-title', 'Dashboard')
+
 @section('content')
     <div class="row">
         <!--begin::Col-->
