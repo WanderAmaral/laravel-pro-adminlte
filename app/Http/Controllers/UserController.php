@@ -13,4 +13,15 @@ class UserController extends Controller
         $users = User::all();
         return view('users.index', ['users' => $users]);
     }
+
+    // Metodo para mostrar o fomulario
+    public function create()
+    {
+        return view('users.create');
+    }
+    public function store(Request $request)
+    {
+
+        dd($request);
+    }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('page-title', 'Users List')
 @section('page-actions')
-    <a href="#" class="btn btn-primary btn-sm">Add New User</a>
+    <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Add New User</a>
 @endsection
 @section('content')
     Lista de usuários
