@@ -5,7 +5,7 @@
 @section('content')
     <div class="register-box">
         <div class="register-logo">
-            <a href="../index2.html"><b>Admin</b>LTE</a>
+            <a href="{{ route('login') }}"><b>Admin</b>LTE</a>
         </div>
         <!-- /.register-logo -->
         <div class="card">
@@ -26,7 +26,7 @@
                     <div class="input-group mb-3">
                         <div class="input-group-text"><span class="bi bi-envelope"></span></div>
                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                            placeholder="Email" value="{{ old('email') }}"/>
+                            placeholder="Email" value="{{ request()->email }}"/>
                         @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -63,7 +63,7 @@
 
                 <!-- /.social-auth-links -->
                 <p class="mb-0 text-center">
-                    <a href="login.html" class="text-center"> I already have a membership </a>
+                    <a href="{{ route('login') }}" class="text-center"> Back to login</a>
                 </p>
             </div>
             <!-- /.register-card-body -->

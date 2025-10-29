@@ -141,7 +141,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img src="{{ Vite::asset('resources/img/user2-160x160.jpg') }}"
                                 class="user-image rounded-circle shadow" alt="User Image" />
-                            <span class="d-none d-md-inline">{{ auth()->user()->name }}</span>
+                            <span class="d-none d-md-inline">{{ auth()->user()?->name }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                             <!--begin::User Image-->
@@ -149,7 +149,7 @@
                                 <img src="{{ Vite::asset('resources/img/user2-160x160.jpg') }}"class="rounded-circle shadow"
                                     alt="User Image" />
                                 <p>
-                                    {{ auth()->user()->name }} - Web Developer
+                                    {{ auth()->user()?->name }} - Web Developer
                                     <small>Member since Nov. 2023</small>
                                 </p>
                             </li>
@@ -167,8 +167,13 @@
                             <!--end::Menu Body-->
                             <!--begin::Menu Footer-->
                             <li class="user-footer">
+
+                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-default btn-flat float-end">Sign
+                                        out</button>
+                                </form>
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
                             </li>
                             <!--end::Menu Footer-->
                         </ul>
