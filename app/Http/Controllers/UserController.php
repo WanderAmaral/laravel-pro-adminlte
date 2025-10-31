@@ -19,6 +19,7 @@ class UserController extends Controller
     {
         return view('users.create');
     }
+
     public function store(Request $request)
     {
         $input = $request->validate([
@@ -29,5 +30,22 @@ class UserController extends Controller
 
         User::create($input);
         return redirect()->route('users.index')->with('status', 'User created successfully!');
+    }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $input = $request->validate([
+            'name' => 'required',
+            'email' => 'required|string|email',
+            'password' => 'exclude_if:password,null|min:6',
+        ]);
+        $user->fill($input);
+        $user->save();
+        return redirect()->route('users.index')->with('status', 'User updated successfully!');
     }
 }
