@@ -4,8 +4,12 @@
     <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Add New User</a>
 @endsection
 @section('content')
-    Lista de usuários
 
+    @session('status')
+        <div class="alert alert-success">
+            {{ $value }}
+        </div>
+    @endsession
     <table class="table">
         <thead>
             <tr>

@@ -14,14 +14,21 @@
             @enderror
         </div>
         <div class="mb-3">
-            <label class="form-label">Email address</label>
-            <input type="email" class="form-control" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label class="form-label">Email</label>
+            <input type="email" name="email" value="{{ old('email') }}"
+                class="form-control @error('email') is-invalid @enderror"" aria-describedby="emailHelp">
+            @error('email')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
-        {{-- <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div> --}}
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror""
+                aria-describedby="passwordHelp">
+            @error('password')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
